@@ -1,0 +1,22 @@
+
+.container {
+    margin-right: 50px;
+    margin-left: 5px;
+}
+
+ @media only screen and (max-width: 500px) {
+    /* For mobile phones:  */
+    [class*="col-"] { 
+    width: 100%;
+    } 
+}
+
+@media (min-width: 1200px){
+.container, 
+.container-lg, 
+.container-md, 
+.container-sm, 
+.container-xl {
+max-width: 97%;
+}}
+
