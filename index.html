@@ -15,76 +15,71 @@
   </head>
 
   <body>
-        <!-- Main heading -->
+    <!-- Main heading -->    
     <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
-      <span class="navbar-brand mb-0 h1">
-        <h1>Weather Dashboard</h1>
-      </span>
+      <span class="navbar-brand mb-0 h1"><h1>Weather Dashboard</h1></span>
     </nav>
-    <br>
     <!-- Start container -->
-
     <div class="container">
       <div class="row">
-        <div class="col-m-3" id="sidebar">
-          <div class="row">
-            <h3>Search for a City:</h3>
-          </div>
-          <div class="row">
-            <div class="input-group mb-3"> 
-                <input id="searchTerm" type="text" class="form-control" placeholder="City name" class="input-group-append">
-                <button id="searchBtn" class="btn btn-primary" type="button" id="button-addon2"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-          <div class="row">
-              <div class="searchHistory">
-                <div class="card" style="width: 17rem;">
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item"></li>
-                  </ul>
+          <div class="col-3 bg-light"><p class="search-header my-1"></p>
+            <h5>Search for City:</h5>
+              <div class="input-group mb-3"><input id="city-input" type="text" class="form-control">
+                <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" id="searchButton">
+                          <i class="fa fa-search"></i>
+                      </button>
                 </div>
               </div>
+          <form id="history"></form>
           </div>
-        </div>
-        <div class="col-m-9" id="main">
-          <div class="container">
-            <div class="row">
-                <h1 class="city">City Name</h1>
-                <h1 class="currentDate"></h1>
-                <img class="weaIcon"></img>
-            </div>
-            <div class="row">
-              <p class="temp">Temperature: </p>
-            </div>
-            <div class="row">
-              <p class="hmd">Humidity: </p>
-            </div>
-            <div class="row">
-              <p class="windSpeed">Wind Speed: </p>
-            </div>
-            <div class="row">
-              <p class="uvNdx">UV Index: 
-                <input class="btn btn-danger" type="button" value="      ">
-              </p>
-            </div>
+          
+          <div class="col-9">
+              <div class="row mr-0">
+                  <div class="col-12 border border-dark m-3 rounded">
+                      <div class="container">
+                        <div class="row">
+                            <h2 class="city">City Name</h2>
+                            <h1 class="currentDate"></h1>
+                            <img class="weaIcon"></img>
+                        </div>
+                        <div class="row">
+                          <p class="temperature">Temperature: </p>
+                        </div>
+                        <div class="row">
+                          <p class="humidity">Humidity: </p>
+                        </div>
+                        <div class="row">
+                          <p class="windSpeed">Wind Speed: </p>
+                        </div>
+                        <div class="row">
+                          <p class="uvNdx">UV Index: 
+                            <input class="btn btn-danger" type="button" value="      ">
+                          </p>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-12">
+                      <h3>5-Day Forecast</h3>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                  <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                  <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                  <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                  <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+              </div>
           </div>
-          <div class="container">
-            <div class="row">
-              <h1>5-Day Forecast: </h1>
-            </div>
-            <div class="row">
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+    </div>    
     <!--  JavaScript -->
     <script src="develop/script.js"></script>
-
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
   </body>
 </html>
