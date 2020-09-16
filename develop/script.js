@@ -26,8 +26,8 @@ $.ajax({
     $(".wind").html("Wind Speed: " + response.wind.speed + " miles/hour");
  });
 //  get UV Index favorable(green), moderate(yellow), or severe(red)
-var uvNdxURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey +"&lat=" + response.coord.lat + "&lon=" +
-response.coord.lon;
+var uvNdxURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey +"&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+// Ajax call
 $.ajax({
     url: uvNdxURL,
     method: "GET"
@@ -47,9 +47,10 @@ $.ajax({
         uvColor = "danger";
     }
     var uvDisplay = $("<p>").attr("class").text("UV Index: ");
-    uvDisplay.append($("input").attr("class", "uvNdx").attr("style", ("background-color:" + uvColor)).text(uvNdx));
+    uvDisplay.append($("<p>".attr("class", "uvNdx").attr("style", ("background-color:" + uvColor)).text(uvNdx)));
     cardBody.append(uvDisplay);
 });
     renderCityBtns()
+    5-DayForecast(cityInput);
 
 };
