@@ -1,22 +1,55 @@
-console.log("Weather Dashboard");
+// console.log("Weather Dashboard");
+// This is my API key.
+var APIKey = "4463f873c6dc776fe6795da1c387ee8f";
 
-apiKey = "96404ebac51d984e233fe3941651e4ab"
+// After searching for a city, current and future conditions for that city are displayed and that city is added to the search history.
+var storedCity = []
 
-// present current and future conditions for a city that is searched 
+// When viewing current weather conditions for that city:
+// City name, date, icon representing weather conditions, temperature, humidity, wind will be displayed.
+function srchCity() {
+    var cityInput = $("#cityInput").val();
+    console.log(cityInput);
 
-// add that city to the search history
+// This is the URL needed to query the database.
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=" + APIKey + "&unites=imperial";
+//   AJAX call
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).then(function(response) {
+    console.log(response);
 
-// view current weather conditions for that city
-// Show current city name, date, icon representation of weather conditions, temperature, humidity, wind speed, and UV index.
+    $(".city").html("City name: " + response.name  + " " + "(" + moment().format('l') + ")");
+    $(".temp").html("Temperature: " + response.main.temp + " degrees F");
+    $(".humidity").html("Humidity: " + response.main.humidity);
+    $(".wind").html("Wind Speed: " + response.wind.speed + " miles/hour");
+ });
+//  get UV Index favorable(green), moderate(yellow), or severe(red)
+var uvNdxURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey +"&lat=" + response.coord.lat + "&lon=" +
+response.coord.lon;
+$.ajax({
+    url: uvNdxURL,
+    method: "GET"
+}).then(function(response) {
+    var uvNdx = response.value;
+    var uvColor;
+    if (uvNdx <= 2) {
+        uvColor = "green";
+    }
+    else if (uvNdx >= 3 ||  uvNdx <= 5) {
+        uvColor = "yellow";
+    }
+    else if (uvNdx >= 6 ||  uvNdx <= 8) {
+        uvColor = "red";
+    }
+    else {
+        uvColor = "danger";
+    }
+    var uvDisplay = $("<p>").attr("class").text("UV Index: ");
+    uvDisplay.append($("input").attr("class", "uvNdx").attr("style", ("background-color:" + uvColor)).text(uvNdx));
+    cardBody.append(uvDisplay);
+});
+    renderCityBtns()
 
-
-// Show UV index with a color that indicates whether the conditions are favorable, moderate, or severe.
-
-// Show a 5-day forecast (future weather conditions for that city) that displays  date,  icon representation of weather conditions,  temperature, and  humidity.
-
-// Show current and future conditions for the new city searched.
-
-// Store last searched city forecast.
-
-
-
+};
