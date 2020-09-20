@@ -7,7 +7,7 @@ This **project** challenge was to build a weather dashboard that will run in the
 
 
 ## Preview
-![Weather Dashboard](./assets/06-server-side-apis-homework-demo.png)
+![Weather Dashboard](./lib/images/06-server-side-apis-homework-demo.png)
 
 ### Website
 
