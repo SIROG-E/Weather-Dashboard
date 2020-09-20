@@ -1,88 +1,100 @@
 <!DOCTYPE html>
-<html class="no-js"> 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Weather Dashboard</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!--  CSS -->
-    <link rel="stylesheet" type="text/css" href="develop/style.css">
-  </head>
+<html class="no-js">
 
-  <body>
-    <!-- Main heading -->    
-    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
-      <span class="navbar-brand mb-0 h1"><h1>Weather Dashboard</h1></span>
-    </nav>
-    <!-- Start container -->
-    <div class="container">
-      <div class="row">
-          <div class="col-3 bg-light"><p class="search-header my-1"></p>
-            <h5>Search for City:</h5>
-              <div class="input-group mb-3">
-                <input  type="text" class="form-control" id="cityInput">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="srchButton">
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-              </div>
-          <form id="srchHistory"></form>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Weather Dashboard</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!--  CSS -->
+  <link rel="stylesheet" type="text/css" href="develop/style.css">
+</head>
+
+<body>
+  <!-- Main heading -->
+  <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+    <span class="navbar-brand mb-0 h1">
+      <h1>Weather Dashboard</h1>
+    </span>
+  </nav>
+  <!-- Start container -->
+  <div class="container">
+    <div class="row">
+      <div class="col-3 bg-light">
+        <div>
+          <p class="search-header my-1"></p>
+          <h5>Search for City:</h5>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="cityInput">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" id="srchButton">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
           </div>
-          
-          <div class="col-9">
-              <div class="row">
-                  <div class="col-12 border border-dark m-3 rounded">
-                      <div class="container">
-                        <div class="row">
-                            <h2 class="city">City Name: </h2>
-                            <h1 class="currentDate"></h1>
-                            <img class="weaIcon"></img>
-                        </div>
-                        <div class="row">
-                          <p class="temp">Temperature: </p>
-                        </div>
-                        <div class="row">
-                          <p class="humidity">Humidity: </p>
-                        </div>
-                        <div class="row">
-                          <p class="wind">Wind Speed: </p>
-                        </div>
-                        <div class="row">
-                          <p class="uvNdx">UV Index: 
-                          </p>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-12">
-                      <h3>5-Day Forecast:</h3>
-                  </div>
-              </div>
-              <div class="row">
-                  <div id="day-1" class="col bg-primary text-white ml-3 mb-3 rounded">Da1 </div>
-                  <div id="day-2" class="col bg-primary text-white ml-3 mb-3 rounded">Day 2</div>
-                  <div id="day-3" class="col bg-primary text-white ml-3 mb-3 rounded">Day 3</div>
-                  <div id="day-4" class="col bg-primary text-white ml-3 mb-3 rounded">Day 4</div>
-                  <div id="day-5" class="col bg-primary text-white ml-3 mb-3 rounded">Day 5</div>
-              </div>
-          </div>
+        </div>
+        <div class="card">
+          <ul class="cities list-group list-group-flush">
+            <!-- <li class="city-history list-group-item">Orlando</li>
+            <li class="city-history list-group-item">Houston</li> -->
+          </ul>
+        </div>
       </div>
-    </div>    
-    
+      <div class="col-9 results d-none">
+        <div class="row">
+          <div class="card m-3 current">
+            <div class="card-body">
+              <h5 class="card-title"><span id="city"></span>&nbsp;(<span id="date"></span>)</h5>
+              <p class="card-text"><img id="icon" src="http://openweathermap.org/img/wn/01d@2x.png"></p>
+              <p class="card-text text-muted">Temperature: <span id="temp"></span>&nbsp;&deg;F</p>
+              <p class="card-text text-muted">Humidity: <span id="humidity"></span>&nbsp;%</p>
+              <p class="card-text text-muted">Wind Speed: <span id="windSpeed"></span>&nbsp;MPH</p>
+              <p class="card-text text-muted">UV Index: <span id="uvIndex" class="p-1 mb-3 rounded text-white"></span>
+
+                <!-- <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div> -->
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row col-12">
+          <div>
+            <h3>5-Day Forecast:</h3>
+          </div>
+          <div class="row forecast">
+            <!-- <div class="card text-white bg-primary ml-3 mb-3" style="max-width: 11rem;">
+              <div class="card-body">
+                <h5 class="card-title">Day 1</h5>
+                <p class="card-text"><img style="-webkit-user-select: none;margin: auto;" src="http://openweathermap.org/img/wn/10d@2x.png"></p>
+                <p class="card-text">Temperature: <span>76</span>&nbsp;&deg;F</p>
+                <p class="card-text">Humidity: <span>41</span>&nbsp;%</p>
+              </div>
+            </div> -->
+         
+          </div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--  JavaScript -->
     <script src="develop/script.js"></script>
-  </body>
+</body>
+
 </html>
