@@ -20,3 +20,18 @@
 max-width: 97%;
 }}
 
+
+.bg-orange {
+    background-color: #F18B00!important;
+}
+
+.bg-violet {
+    background-color: #B567A4!important;
+}
+
+.city-history:hover {
+    background-color: lightgray;
+    opacity: 0.5;
+    color: #007bff;
+}
+
