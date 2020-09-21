@@ -91,7 +91,7 @@
         };
 
         function updateWeatherInfoView(weatherInfo) {
-            var icon_href = `http://openweathermap.org/img/wn/${weatherInfo.current.weather[0].icon}@2x.png`;
+            var icon_href = `https://openweathermap.org/img/wn/${weatherInfo.current.weather[0].icon}@2x.png`;
 
             $("#icon").attr("src", icon_href)
             $("#city").html(weatherInfo.current.name);
@@ -131,7 +131,7 @@
                 <div class="card col text-white bg-primary ml-4 mb-3" style="max-width: 12rem;">
                     <div class="card-body">
                         <h5 class="card-title">${date}</h5>
-                        <p class="card-text"><img src="http://openweathermap.org/img/wn/${icon}@2x.png"></p>
+                        <p class="card-text"><img src="https://openweathermap.org/img/wn/${icon}@2x.png"></p>
                         <p class="card-text"><span>${description}</span></p>
                         <p class="card-text">Temp: <span>${temp}</span>&nbsp;&deg;F</p>
                         <p class="card-text">Humidity: <span>${humidity}</span>&nbsp;%</p>
@@ -255,7 +255,7 @@
         function getCurrentWeatherInfo(query, success, error) {
             //api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={your api key}
 
-            var url = `http://api.openweathermap.org/data/2.5/weather?appid=${appid}&q=${query}`;
+            var url = `https://api.openweathermap.org/data/2.5/weather?appid=${appid}&q=${query}`;
 
             return apiConnect(url, success, error);
         }
@@ -263,7 +263,7 @@
         function getCurrentUVInfo(lat, lon, success, error) {
             //api.openweathermap.org/data/2.5/uvi?lat=37.75&lon=-122.37
 
-            var url = `http://api.openweathermap.org/data/2.5/uvi?appid=${appid}&lat=${lat}&lon=${lon}`;
+            var url = `https://api.openweathermap.org/data/2.5/uvi?appid=${appid}&lat=${lat}&lon=${lon}`;
 
             return apiConnect(url, success, error);
         }
@@ -271,7 +271,7 @@
         function get5DayWeatherForecast(lat, lon, success, error) {
             //api.openweathermap.org/data/2.5/onecall?appid=96404ebac51d984e233fe3941651e4ab&exclude=hourly,minutely&units=imperial&lat=33.75&lon=-84.39
 
-            var url = `http://api.openweathermap.org/data/2.5/onecall?appid=${appid}&exclude=hourly,minutely&units=imperial&lat=${lat}&lon=${lon}`;
+            var url = `https://api.openweathermap.org/data/2.5/onecall?appid=${appid}&exclude=hourly,minutely&units=imperial&lat=${lat}&lon=${lon}`;
 
             return apiConnect(url, success, error);
         }
