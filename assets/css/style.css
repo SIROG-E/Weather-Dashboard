@@ -4,22 +4,6 @@
     margin-left: 5px;
 }
 
- @media only screen and (max-width: 500px) {
-    /* For mobile phones:  */
-    [class*="col-"] { 
-    width: 100%;
-    } 
-}
-
-@media (min-width: 1200px){
-.container, 
-.container-lg, 
-.container-md, 
-.container-sm, 
-.container-xl {
-max-width: 97%;
-}}
-
 
 .bg-orange {
     background-color: #F18B00!important;
@@ -34,4 +18,34 @@ max-width: 97%;
     opacity: 0.5;
     color: #007bff;
 }
+
+
+
+
+
+
+@media (min-width: 1200px){
+    .container, 
+    .container-lg, 
+    .container-md, 
+    .container-sm, 
+    .container-xl {
+    max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    /* For mobile phones:  */
+    [class*="col-"] { 
+    width: 100%;
+    } 
+}
+
+@media screen and (max-width: 400px) {
+    .card-body {
+        width: 100%;
+    }
+    
+}
+
 
