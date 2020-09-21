@@ -128,7 +128,7 @@
         function htmlTemplate(date, icon, description, temp, humidity) {
             //`` allows me to accomplish javascript string interpolation
             var template = `
-                <div class="card text-white bg-primary ml-4 mb-3" style="max-width: 12rem;">
+            <div class="card text-white bg-primary my-2" style="min-width: 11rem; max-width: 11rem;">
                     <div class="card-body">
                         <h5 class="card-title">${date}</h5>
                         <p class="card-text"><img src="https://openweathermap.org/img/wn/${icon}@2x.png"></p>

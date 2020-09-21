@@ -23,11 +23,11 @@
     </span>
   </nav>
   <!-- Start container -->
-  <div class="container">
-    <div class="row">
-      <div class="col-3 bg-light">
-        <div>
-          <p class="search-header my-1"></p>
+  <div class="container-fluid">
+    <div class="row my-3">
+
+      <div class="col-sm-3 bg-light">
+        <div class="search-header my-1">
           <h5>Search for City:</h5>
           <div class="input-group mb-3">
             <input type="text" class="form-control" id="cityInput">
@@ -38,46 +38,45 @@
             </div>
           </div>
         </div>
-        <div class="card">
+
+        <!-- history of searched cities; hides on mobile -->
+        <div class="card history">
           <ul class="cities list-group list-group-flush">
+            <!-- list item template reference -->
             <!-- <li class="city-history list-group-item">Orlando</li>
             <li class="city-history list-group-item">Houston</li> -->
           </ul>
         </div>
       </div>
-      <div class="col-9 results d-none">
-        <div class="row">
-          <div class="card m-3 current">
+      <!-- current weather column -->
+      <div class="col-sm-9 results d-none">
+        <div class="card current">
+          <div class="card-body">
+            <h5 class="card-title"><span id="city"></span>&nbsp;(<span id="date"></span>)</h5>
+            <p class="card-text"><img id="icon" src="https://openweathermap.org/img/wn/01d@2x.png"></p>
+            <p class="card-text text-muted">Temperature: <span id="temp"></span>&nbsp;&deg;F</p>
+            <p class="card-text text-muted">Humidity: <span id="humidity"></span>&nbsp;%</p>
+            <p class="card-text text-muted">Wind Speed: <span id="windSpeed"></span>&nbsp;MPH</p>
+            <p class="card-text text-muted">UV Index: <span id="uvIndex" class="p-1 mb-3 rounded text-white"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- five day forecast column; using offeset -->
+      <div class="col-sm-9 offset-sm-3 my-3 results d-none">
+        <h3>5-Day Forecast: </h3>
+        <div class="card-deck forecast">
+          <!-- daily weather forecast template reference -->
+          <!-- <div class="card text-white bg-primary ml-3 mb-3" style="max-width: 11rem;">
             <div class="card-body">
-              <h5 class="card-title"><span id="city"></span>&nbsp;(<span id="date"></span>)</h5>
-              <p class="card-text"><img id="icon" src="https://openweathermap.org/img/wn/01d@2x.png"></p>
-              <p class="card-text text-muted">Temperature: <span id="temp"></span>&nbsp;&deg;F</p>
-              <p class="card-text text-muted">Humidity: <span id="humidity"></span>&nbsp;%</p>
-              <p class="card-text text-muted">Wind Speed: <span id="windSpeed"></span>&nbsp;MPH</p>
-              <p class="card-text text-muted">UV Index: <span id="uvIndex" class="p-1 mb-3 rounded text-white"></span>
-
-                <!-- <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div> -->
-              </p>
+              <h5 class="card-title">Day 1</h5>
+              <p class="card-text"><img style="-webkit-user-select: none;margin: auto;"
+                  src="https://openweathermap.org/img/wn/10d@2x.png"></p>
+              <p class="card-text">Temperature: <span>76</span>&nbsp;&deg;F</p>
+              <p class="card-text">Humidity: <span>41</span>&nbsp;%</p>
             </div>
-          </div>
+          </div> -->
         </div>
-        <div class="row col-12 " id="Five">
-          <div>
-            <h3>5-Day Forecast: </h3>
-          </div>
-          <div class="row forecast">
-            <!-- <div class="card text-white bg-primary ml-3 mb-3" style="max-width: 11rem;">
-              <div class="card-body">
-                <h5 class="card-title">Day 1</h5>
-                <p class="card-text"><img style="-webkit-user-select: none;margin: auto;" src="https://openweathermap.org/img/wn/10d@2x.png"></p>
-                <p class="card-text">Temperature: <span>76</span>&nbsp;&deg;F</p>
-                <p class="card-text">Humidity: <span>41</span>&nbsp;%</p>
-              </div>
-            </div> -->
-         
-          </div>
-        </div>
-
       </div>
     </div>
 
